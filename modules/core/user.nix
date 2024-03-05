@@ -27,7 +27,14 @@
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
     };
+    "nixos" = {
+        isNormalUser = true;
+        description = "WSL";
+        extraGroups = [ "networkmanager" "wheel"];
+        shell = pkgs.zsh;
+      };
  };
- nix.settings.allowed-users = [ "zell" ];
+ 
+ nix.settings.allowed-users = [ "zell" "nixos" ];
   } 
 

@@ -2,13 +2,13 @@
 
 with lib;
 let
-  defaultUser = nixos;
+  defaultUser = "nixos";
   system = "x86_64-linux";
 in
 {
   imports = [
     self.inputs.NixOS-WSL.nixosModules.wsl
-    #./hardware-configuration.nix
+    ./hardware-configuration.nix
   ];
 
   wsl = {
