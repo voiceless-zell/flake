@@ -10,9 +10,8 @@ in
     self.inputs.NixOS-WSL.nixosModules.wsl
     ./hardware-configuration.nix
   ];
-  networking.hostName = "nixos"
+  
   nixos = {
-    defaultUser = "nixos";
     enable = true;
     wslConf.automount.root = "/mnt";
   };
@@ -20,7 +19,7 @@ in
   # WSL is closer to a container than anything else
   boot.isContainer = true;
 
-  networking.hostName = "wsl";
+  networking.hostName = "nixos";
 
   environment.etc.hosts.enable = false;
   environment.etc."resolv.conf".enable = false;
