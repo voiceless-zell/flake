@@ -43,7 +43,7 @@ nixos = nixpkgs.lib.nixosSystem {
     specialArgs = { inherit self inputs; };
     modules = 
          [inputs.NixOS-WSL.nixosModules.wsl]
-      ++ [ (import ../../hosts/wsl/default.nix)]
+      ++ [ (import ../../hosts2/wsl/default.nix)]
       ;
   };
   }
