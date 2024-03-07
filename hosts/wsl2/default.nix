@@ -11,7 +11,7 @@ in
     ./hardware-configuration.nix
   ];
   
-  nixos = {
+   wsl = {
     enable = true;
     wslConf.automount.root = "/mnt";
   };
@@ -19,7 +19,7 @@ in
   # WSL is closer to a container than anything else
   boot.isContainer = true;
 
-  networking.hostName = "nixos";
+  networking.hostName = "wsl";
 
   environment.etc.hosts.enable = false;
   environment.etc."resolv.conf".enable = false;

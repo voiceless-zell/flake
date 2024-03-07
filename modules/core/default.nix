@@ -39,7 +39,7 @@ T480 = nixpkgs.lib.nixosSystem {
   ;
   };
  
-nixos = nixpkgs.lib.nixosSystem {
+wsl = nixpkgs.lib.nixosSystem {
     specialArgs = { inherit self inputs; };
     modules = 
          [inputs.NixOS-WSL.nixosModules.wsl]
