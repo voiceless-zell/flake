@@ -10,7 +10,7 @@ in
     self.inputs.NixOS-WSL.nixosModules.wsl
     ./hardware-configuration.nix
   ];
-
+  networking.hostName = "nixos"
   nixos = {
     defaultUser = "nixos";
     enable = true;
