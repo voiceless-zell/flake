@@ -19,6 +19,13 @@
       home.stateVersion = "23.11";
       programs.home-manager.enable = true;
     };
+    users.nixos = {
+        import = [ (import ./../home/nixos.nix) ];
+        home.username = "nixos";
+        home.homeDirectory = "/home/nixos";
+        home.stateVersion = "23.11"
+        programs.home-manager.enable = true;
+        }
   };
  users.users = {
     "zell" = {
