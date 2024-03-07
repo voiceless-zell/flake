@@ -2,7 +2,7 @@
 
 with lib;
 let
-  defaultUser = "nixos";
+  
   system = "x86_64-linux";
 in
 {
@@ -12,8 +12,7 @@ in
   ];
 
   nixos = {
-    inherit defaultUser;
-
+    defaultUser = "nixos";
     enable = true;
     wslConf.automount.root = "/mnt";
   };
