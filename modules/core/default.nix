@@ -46,5 +46,5 @@ T480 = nixpkgs.lib.nixosSystem {
 #      ++ [ (import ../../hosts/wsl2/default.nix)]
 #      ;
 #  };
-#  }
+  }
 
