@@ -16,10 +16,6 @@
     enable = true;
     xkb.layout = "us";
   #  videoDrivers = [ "nvidia" ];
-    displayManager.autoLogin = {
-      enable = true;
-      user = "zell";
-    }; 
   };
 }
   
