@@ -2,7 +2,6 @@
   imports = [
       ./hardware-configuration.nix
       ./nix.nix
-      ./../../modules/core/hardware.nix
        ./../../modules/core/pipewire.nix
        ./../../modules/core/program.nix
        ./../../modules/core/security.nix
