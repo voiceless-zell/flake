@@ -9,8 +9,6 @@
        ./../../modules/core/services.nix
        ./../../modules/core/system.nix
        ./../../modules/core/user.nix
-       ./../../modules/core/wayland.nix
-       ./../../modules/core/obsidian.nix
     ];
 }
 
