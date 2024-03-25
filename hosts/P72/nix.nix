@@ -2,6 +2,10 @@
 {        
 boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernel.sysctl = {
+  "vm.max_map_count" = 16777216;
+  "fs.file-max" = 524288;
+};
   networking = {
     hostName = "P72";
     networkmanager.enable = true;
@@ -40,6 +44,7 @@ services.hardware.bolt.enable = true;
     vaapiIntel
     vaapiVdpau
     libvdpau-va-gl
+    wineWowPackages.waylandFull
   ];
   };
   powerManagement.cpuFreqGovernor = "performance";
