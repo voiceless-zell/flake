@@ -4,8 +4,10 @@ imports = [
   ./../../nixos/common/program.nix
   ./../../nixos/common/system.nix
   ];
-boot.kernelModules = [ "kvm-intel" ];
-nixpkgs.config.allowUnfree = true;
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables= true;
+  boot.kernelModules = [ "kvm-intel" ];
+  nixpkgs.config.allowUnfree = true;
  networking = {
     hostName = "T480";
   };
