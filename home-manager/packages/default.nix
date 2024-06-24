@@ -18,14 +18,12 @@
         home.packages = with pkgs; [
       # others
       p7zip
-      neofetch
       openssl
       libnotify
       pamixer
       pavucontrol
       wget
       unzip
-      gparted
       mpv
       playerctl
       qalculate-gtk

@@ -28,7 +28,6 @@ in {
     plugins = with pkgs.vimPlugins; [
       lazy-nvim
       obsidian-nvim
-      vimwiki
       
     ];
     extraLuaConfig = 
