@@ -19,7 +19,7 @@ wsl = nixpkgs.lib.nixosSystem {
 T480 = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs self; };
         modules = 
-        [ (./T480//default.nix)]
+        [ (./T480/default.nix)]
      ++ [ (./../users/zell.nix)]
         ;
       };
