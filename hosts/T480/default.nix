@@ -34,4 +34,5 @@ nixpkgs.config.allowUnfree = true;
     };
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   services.gvfs.enable = true;
+  nixpkgs.hostPlatform = "x86_64-linux";
 }
