@@ -17,7 +17,7 @@
       imports = [ (import ./../home/zell.nix) ];
       home.username = "zell";
       home.homeDirectory = "/home/zell";
-      home.stateVersion = "23.11";
+      home.stateVersion = "24.05";
       programs.home-manager.enable = true;
     };
   };
