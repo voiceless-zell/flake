@@ -6,7 +6,7 @@
       ./homemanager.nix
       ./../../modules/core/steam.nix
       ./../../modules/core/virtualisation.nix
-#     ./../../modules/core/pipewire.nix
+     ./../../modules/core/pipewire.nix
       ./../../modules/core/program.nix
       ./../../modules/core/security.nix
       ./../../modules/core/services.nix

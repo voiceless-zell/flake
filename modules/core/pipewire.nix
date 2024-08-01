@@ -1,5 +1,4 @@
 { isNIXOS, ... }: {
-  sound.enable = isNIXOS;
   hardware.pulseaudio.enable = false;
   services.pipewire = {
     enable = isNIXOS;
