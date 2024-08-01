@@ -56,7 +56,7 @@
       inputs.nix-citizen.packages.${system}.star-citizen-helper
       inputs.nix-citizen.packages.${system}.lug-helper
       lutris
-      wine64
+      wineWowPackages.waylandFull
       winetricks
       python312Packages.huggingface-hub
       ferium
