@@ -17,6 +17,7 @@
     ++ [ (import ./ncspot)]
     ++ [ (import ./term/kitty)]
     ++ [ (import ./gtk)]
+    ++ [ (import ./qute)]
    
     ;
     config.modules = {

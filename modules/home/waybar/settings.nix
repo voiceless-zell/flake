@@ -18,8 +18,8 @@ in{
       ];
       
       modules-right = [
-      #  "pulseaudio"
-      #  "pulseaudio#microphone"
+        "pulseaudio"
+        "pulseaudio#microphone"
         "memory"
         "cpu"
         "disk"
@@ -36,28 +36,28 @@ in{
         "format" = "{icon}";
         "on-click" = "activate";
       };
-     # "pulseaudio" = {
-     #   "scroll-step" = 5;
-     #   "format" = "{icon} {volume}%";
-     #   "format-muted" = "󰸈 Muted";
-     #   "format-icons" = {
-     #     "default" = [ "" "" "󱄠" ];
-     #   };
-     #   "on-click" = "pamixer -t";
-     #   "on-click-right" = "pavucontrol";
-     #   "on-click-middle" = "$HOME/.local/bin/toggle_sound_output";
-     #   "tooltip" = false;
-     # };
-     # "pulseaudio#microphone" = {
-     #   "format" = "{format_source}";
-     #   "format-source" = "󰍬 {volume}%";
-     #   "format-source-muted" = "󰍭 Muted";
-     #   "on-click" = "pamixer --default-source -t";
-     #   "on-scroll-up" = "pamixer --default-source -i 5";
-     #   "on-scroll-down" = "pamixer --default-source -d 5";
-     #   "scroll-step" = 5;
-     #   "on-click-right" = "pavucontrol";
-     # };
+      "pulseaudio" = {
+        "scroll-step" = 5;
+        "format" = "{icon} {volume}%";
+       "format-muted" = "󰸈 Muted";
+        "format-icons" = {
+          "default" = [ "" "" "󱄠" ];
+        };
+        "on-click" = "pamixer -t";
+        "on-click-right" = "pavucontrol";
+        "on-click-middle" = "$HOME/.local/bin/toggle_sound_output";
+        "tooltip" = false;
+      };
+      "pulseaudio#microphone" = {
+        "format" = "{format_source}";
+        "format-source" = "󰍬 {volume}%";
+        "format-source-muted" = "󰍭 Muted";
+        "on-click" = "pamixer --default-source -t";
+        "on-scroll-up" = "pamixer --default-source -i 5";
+        "on-scroll-down" = "pamixer --default-source -d 5";
+        "scroll-step" = 5;
+        "on-click-right" = "pavucontrol";
+      };
       "clock" = {
         "interval" = 1;
         "format" = "{:%I:%M %p  %A %b %d}";
