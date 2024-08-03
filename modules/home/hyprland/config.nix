@@ -102,7 +102,6 @@ in{
       bind = $mainMod, Y, pin,
       bind = $mainMod, J, togglesplit,
       bind = $mainMod, E, exec, thunar
-      bind = $mainMod, B, exec, pkill -SIGUSR1 .waybar-wrapped
       bind = $mainMod SHIFT, h ,exec, hyprpicker -a
       bind = $mainMod, G,exec, $HOME/.local/bin/toggle_layout
       bind = $mainMod, W,exec, pkill wofi || wallpaper-picker
