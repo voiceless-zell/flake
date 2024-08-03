@@ -113,7 +113,7 @@ window#waybar.empty #window {
 #pulseaudio {
     /* font-size: 26px; */
        border-radius: 16px;
-    background-color: #1a1b26;
+    background-color: #394b70;
 
 }
 
