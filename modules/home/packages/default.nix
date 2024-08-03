@@ -60,6 +60,7 @@
       winetricks
       python312Packages.huggingface-hub
       ferium
+      gamescope
     #  minecraft
 ];
     };

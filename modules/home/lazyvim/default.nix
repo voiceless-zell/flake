@@ -18,10 +18,9 @@ in {
     defaultEditor = true;
     withRuby = true;
     extraPackages = with pkgs; [
-      # LazyVim
       lua-language-server
       stylua
-      # Telescope
+        #    Telescope
       ripgrep 
     ];
 
@@ -29,6 +28,7 @@ in {
       lazy-nvim
       obsidian-nvim
       vimwiki      
+      LazyVim
     ];
     extraLuaConfig = 
       let

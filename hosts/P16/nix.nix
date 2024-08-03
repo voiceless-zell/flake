@@ -6,8 +6,6 @@
 
   ];
 boot.loader.systemd-boot.enable = true;
-boot.kernelPackages = pkgs.linuxPackages_latest;
-boot.kernelModules = [ "intel" ];
 boot.loader.efi.canTouchEfiVariables = true;
 boot.kernel.sysctl = {
   "vm.max_map_count" = 16777216;
@@ -45,7 +43,6 @@ services.hardware.bolt.enable = true;
     powerManagement.enable = false;
     powerManagement.finegrained = false;
     nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
      prime ={
       sync.enable = true;
       intelBusId = "PCI:0:02:0";
