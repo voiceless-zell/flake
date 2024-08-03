@@ -109,7 +109,7 @@ in{
       bind = $mainMod, O,exec, toggle-opacity
       bind = $mainMod, A,exec, toggle-animation
       bind = $mainMod, D,exec, toggle-blur
-      bind = $mainMod, F,exec, firefox
+      bind = $mainMod, B,exec, qutebrowser 
       # screenshot
       bind = ,Print, exec, grimblast --notify --cursor save area ~/Pictures/$(date ' + %Y-%m-%d ' T '%H:%M:%S ').png
       bind = $mainMod, Print, exec, grimblast --notify --cursor  copy area
