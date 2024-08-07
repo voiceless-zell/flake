@@ -19,7 +19,7 @@ boot.kernel.sysctl = {
    services.xserver = {
     enable = true;
     xkb.layout = "us";
-    videoDrivers = [ "nvidia" "intel" ];
+    videoDrivers = ["modesetting" "nvidia" "intel"];
     displayManager.sddm = {
       enable = true;
     };
