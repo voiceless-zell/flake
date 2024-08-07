@@ -24,7 +24,7 @@ boot.initrd.availableKernelModules = [  "vfio-pci"];
    services.xserver = {
     enable = true;
     xkb.layout = "us";
-   videoDrivers = [  "nvidia" "amd"  ];
+   videoDrivers = [   "amdgpu"  ];
     desktopManager.gnome = {
         enable = true;
       };
@@ -33,14 +33,15 @@ boot.initrd.availableKernelModules = [  "vfio-pci"];
      modesetting.enable = true;
     powerManagement.enable = false;
     powerManagement.finegrained = false;
+    dynamicBoost.enable = true;
     nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
      prime ={
       sync.enable = true;
       amdgpuBusId = "PCI:04:00:0";
       nvidiaBusId = "PCI:01:00:0";
      };   
   };
+  services.asusd.enable = true;
   hardware.opengl = {
     enable = true;
     extraPackages = with pkgs; [
