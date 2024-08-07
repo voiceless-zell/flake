@@ -108,7 +108,8 @@ in{
       bind = $mainMod, O,exec, toggle-opacity
       bind = $mainMod, A,exec, toggle-animation
       bind = $mainMod, D,exec, toggle-blur
-      bind = $mainMod, B,exec, qutebrowser 
+      bind = $mainMod, F,exec, qutebrowser 
+      bind = $mainMod, B, exec, pkill -SIGUSR1 .waybar-wrapped
       # screenshot
       bind = ,Print, exec, grimblast --notify --cursor save area ~/Pictures/$(date ' + %Y-%m-%d ' T '%H:%M:%S ').png
       bind = $mainMod, Print, exec, grimblast --notify --cursor  copy area
