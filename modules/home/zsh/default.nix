@@ -30,7 +30,7 @@ in {
       v = "nvim";
       record = "wf-recorder --audio=alsa_output.pci-0000_08_00.6.analog-stereo.monitor -f $HOME/Videos/$(date +'%Y%m%d%H%M%S_1.mp4')";
       ls = "eza --icons --long";
-      startbg = " nohup ~/flake/backgrounds/swww_randomize.sh ~/flake/backgrounds > output.log 2>&1 &";
+      startbg = " nohup ~/flake2/backgrounds/swww_randomize.sh ~/flake2/backgrounds > output.log 2>&1 &";
       # nixos
       fl = "cd ~/flake2/ && v";
       notes = "cd ~/notes/ && v";
