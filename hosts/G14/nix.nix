@@ -24,7 +24,7 @@ boot.initrd.availableKernelModules = [  "vfio-pci"];
    services.xserver = {
     enable = true;
     xkb.layout = "us";
-   videoDrivers = [   "amdgpu"  ];
+   videoDrivers = [ "amdgpu" "nvidia" ];
     desktopManager.gnome = {
         enable = true;
       };
@@ -36,7 +36,10 @@ boot.initrd.availableKernelModules = [  "vfio-pci"];
     dynamicBoost.enable = true;
     nvidiaSettings = true;
      prime ={
-      sync.enable = true;
+      offload = {
+        enable = true;
+        enableOffloadCmd = true;
+      };
       amdgpuBusId = "PCI:04:00:0";
       nvidiaBusId = "PCI:01:00:0";
      };   
