@@ -7,6 +7,14 @@ pkgs = import nixpkgs {
 lib = nixpkgs.lib;
 in 
 { 
+symac = nixpkgs.lib.nixosSystem {
+    specialArgs = {inherit self inputs; isNIXOS = true;};
+    modules =
+    [ (../../hosts/symac/default.nix)]
+#++ [ (nixos-hardware.nixosModules.asus-zephyrus-ga401)]
+   ;
+  };
+
   G14 = nixpkgs.lib.nixosSystem {
     specialArgs = {inherit self inputs; isNIXOS = true;};
     modules =
