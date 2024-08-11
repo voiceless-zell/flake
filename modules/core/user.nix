@@ -23,7 +23,6 @@
     users.syguy = {
       imports = [ (import ./../home/syguy.nix) ];
       home.username = "syguy";
-      home.homeDirectory = "/home/syguy/";
       home.stateVersion = "24.05";
       programs.home-manager.enable = true;
     };
