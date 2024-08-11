@@ -12,6 +12,9 @@
     enable = true;
     xkb.layout = "us";
    videoDrivers = [ "intel" ];
+   desktopManager.gnome = {
+        enable = true;
+      };
    };
   hardware.opengl = {
     enable = true;
