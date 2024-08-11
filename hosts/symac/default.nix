@@ -11,6 +11,17 @@
       ./../../modules/core/user.nix
       ./../../modules/core/wayland.nix
       ./../../modules/core/obsidian.nix
-      ./homemanager.nix
     ];
+	services = {
+    gvfs.enable = isNIXOS;
+    gnome.gnome-keyring.enable = isNIXOS;
+    dbus.enable = true;
+    openssh = {
+      enable = true;
+      settings = {
+        PasswordAuthentication = true;
+        AllowUsers = ["zell"];
+      };
+    }; 
+};
 }
