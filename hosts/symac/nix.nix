@@ -7,7 +7,6 @@
     networkmanager.enable = true;
     firewall.enable = false;
   };
-  zramSwap.enable = true;
    services.xserver = {
     enable = true;
     xkb.layout = "us";
