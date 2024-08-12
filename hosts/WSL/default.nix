@@ -3,6 +3,7 @@
   imports = [
   ../../modules/core/program.nix
   ../../modules/core/system.nix
+  ../../modules/core/user.nix  
   ];
 nixpkgs.config.allowUnfree = true;
  networking = {
