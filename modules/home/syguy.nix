@@ -11,7 +11,7 @@
     ++ [ (import ./mako) ]
     ++ [ (import ./starship) ]
     ++ [ (import ./wlogout) ]
-    ++ [ (import ./packages) ]
+    ++ [ (import ./packages/sy.nix) ]
     ++ [ (import ./tmux)]
     ++ [ (import ./lazyvim)]
     ++ [ (import ./ncspot)]
