@@ -30,6 +30,6 @@
         wofi.enable = true;
         zsh.enable = true;
         wlogout.enable = true;
-        packages.enable = true;
+        sypackages.enable = true;
     };
 }

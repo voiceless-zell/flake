@@ -7,9 +7,9 @@
   
  {
       
-    options.modules.packages = { enable = mkEnableOption "packages"; };
+    options.modules.sypackages = { enable = mkEnableOption "sypackages"; };
     config = mkIf cfg.enable {
-        home.packages = with pkgs; [
+        home.sypackages = with pkgs; [
       # others
       bitwarden
       p7zip
