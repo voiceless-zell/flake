@@ -11,7 +11,7 @@
     ++ [ (import ./mako) ]
     ++ [ (import ./starship) ]
     ++ [ (import ./wlogout) ]
-    ++ [ (import ./packages/sy.nix) ]
+    ++ [ (import ./packages) ]
     ++ [ (import ./tmux)]
     ++ [ (import ./lazyvim)]
     ++ [ (import ./ncspot)]
@@ -30,6 +30,6 @@
         wofi.enable = true;
         zsh.enable = true;
         wlogout.enable = true;
-        sypackages.enable = true;
+        packages.enable = true;
     };
 }
