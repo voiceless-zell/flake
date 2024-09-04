@@ -30,6 +30,7 @@ boot.initrd.availableKernelModules = [  "vfio-pci"];
       };
    };
  hardware.nvidia = {
+    package = config.boot.kernelPackages.nvidiaPackages.production;
      modesetting.enable = true;
     powerManagement.enable = false;
     powerManagement.finegrained = false;

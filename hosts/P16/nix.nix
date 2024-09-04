@@ -43,6 +43,7 @@ services.hardware.bolt.enable = true;
     powerManagement.enable = false;
     powerManagement.finegrained = false;
     nvidiaSettings = true;
+    open = true;
      prime ={
       sync.enable = true;
       intelBusId = "PCI:0:02:0";
