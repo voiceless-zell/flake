@@ -41,7 +41,6 @@ in{
           border_size = 1
           col.active_border = rgba(595959ff)
           col.inactive_border = rgba(00140e10)
-          apply_sens_to_raw = 1
       }
 
 

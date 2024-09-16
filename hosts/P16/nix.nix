@@ -3,7 +3,7 @@
 {        
   imports = [
   ./hardware-configuration.nix
-
+ #./smb.nix
   ];
 boot.loader.systemd-boot.enable = true;
 boot.loader.efi.canTouchEfiVariables = true;
@@ -55,6 +55,8 @@ services.hardware.bolt.enable = true;
     extraPackages = with pkgs; [
     intel-compute-runtime
     intel-media-driver
+    mesa
+    intel-vaapi-driver
   ];
   };
   powerManagement.cpuFreqGovernor = "performance";
