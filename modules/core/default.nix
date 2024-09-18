@@ -37,6 +37,7 @@ symac = nixpkgs.lib.nixosSystem {
     };
   mserver = nixpkgs.lib.nixosSystem {
     specialArgs = {inherit self inputs;isNIXOS = true; };
+    modules =
     [(../../hosts/mserver/default.nix)]
     ;
   };
