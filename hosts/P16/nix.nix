@@ -57,6 +57,7 @@ services.hardware.bolt.enable = true;
     intel-media-driver
     mesa
     intel-vaapi-driver
+    vaapiVdpau
   ];
   };
   powerManagement.cpuFreqGovernor = "performance";
