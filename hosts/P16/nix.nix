@@ -1,5 +1,5 @@
 
-{pkgs, inputs, config, nixpkgs, self, isNIXOS, ...}: 
+{pkgs, inputs, config, nixpkgs, lib, self, isNIXOS, ...}: 
 {        
   imports = [
   ./hardware-configuration.nix
@@ -19,7 +19,7 @@ boot.kernel.sysctl = {
    services.xserver = {
     enable = true;
     xkb.layout = "us";
-    videoDrivers = ["nvidia" "intel"];
+    videoDrivers = ["nvidia" "inter" "displaylink" ];
     displayManager.sddm = {
       enable = true;
     };
@@ -38,6 +38,9 @@ boot.kernel.sysctl = {
 services.displayManager.sddm.wayland.enable = true;
 services.gvfs.enable = true;
 services.hardware.bolt.enable = true;
+services.xserver.displayManager.sessionCommands = ''
+    ${lib.getBin pkgs.xorg.xrandr}/bin/xrandr --setprovideroutputsource 2 0
+'';
  hardware.nvidia = {
      modesetting.enable = false;
     powerManagement.enable = false;

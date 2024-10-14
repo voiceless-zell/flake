@@ -63,6 +63,7 @@
       gamescope
       prismlauncher
       zulu8
+      vscode
 ];
     };
 }
