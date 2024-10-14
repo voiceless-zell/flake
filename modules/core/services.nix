@@ -11,10 +11,10 @@
       };
     };
     self-deploy.sshKeyFile = "~/.ssh/id_ed25519";
-    ollama = {
-      enable = isNIXOS;
-      acceleration = "cuda";#find why over ride package
-    };
+    #   ollama = {
+    #  enable = isNIXOS;
+    #  acceleration = "cuda";#find why over ride package
+    #};
     displayManager = {
         sddm = {
             enable = isNIXOS;
