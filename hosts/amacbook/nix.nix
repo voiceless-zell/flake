@@ -1,13 +1,13 @@
-{pkgs, ...}:
+{pkgs, inputs, config, nixpkgs, lib, self, isNIXOS, ...}:
 {
-  import = [
-    ./../../modules/core/
-  ]
+  imports = [
+    ./hardware-configuration.nix
+  ];
   networking.hostName = "amacbook";
-  networkmanager.enable = true;
+  networking.networkmanager.enable = true;
 
-  boot.loader.sytemd-boot.enable = true;
-  boot.kernelPackages = pkgs.linkuxPackages_latest;
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   services.xserver = {
     enable = true;
