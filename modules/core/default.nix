@@ -41,4 +41,10 @@ symac = nixpkgs.lib.nixosSystem {
     [(../../hosts/mserver/default.nix)]
     ;
   };
+  amacbook = nixpkgs.lib.nixosSystem {
+    specialArgs = {inherit self inputs;isNIXOS = true; };
+    modules = 
+  [(../../hosts/amacbook/default.nix)]
+  ;
+  };
 }

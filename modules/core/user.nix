@@ -26,6 +26,12 @@
       home.stateVersion = "24.05";
       programs.home-manager.enable = true;
     };
+    users.airyanna = {
+      imports = [ (import ./../home/airyanna.nix) ];
+      home.username = "airyanna";
+      home.stateVersion = "24.05";
+      programs.home-manager.enable = true;
+    };
   };
   users.users = {
     "zell" = {
@@ -37,6 +43,12 @@
     "syguy" = {
       isNormalUser = true;
       description = "Syrius";
+      extraGroups = [ "input" ];
+      shell = pkgs.zsh;
+    };
+    "airyanna" = {
+      isNormalUser = true;
+      description = "Airyanna";
       extraGroups = [ "input" ];
       shell = pkgs.zsh;
     };
