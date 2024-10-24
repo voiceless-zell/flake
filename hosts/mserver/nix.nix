@@ -1,9 +1,7 @@
 {
-  pkgs,
-  inputs,
-  config,
   ...
-}: {
+}:
+{
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   networking = {
@@ -14,14 +12,15 @@
   services.xserver = {
     enable = true;
     xkb.layout = "us";
-    videoDrivers = ["intel"];
+    videoDrivers = [ "intel" ];
     desktopManager.gnome = {
       enable = true;
     };
   };
   hardware.opengl = {
     enable = true;
-    extraPackages = with pkgs; [
-    ];
+    extraPackages =
+      [
+      ];
   };
 }

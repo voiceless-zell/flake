@@ -1,11 +1,7 @@
 {
-  pkgs,
-  inputs,
-  config,
-  nixpkgs,
-  self,
   ...
-}: {
+}:
+{
   home-manager.users.zell = {
     wayland.windowManager.hyprland.settings.monitor = [
       "eDP-1,2560x1600,0x0,1"

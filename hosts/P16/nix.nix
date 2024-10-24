@@ -1,16 +1,11 @@
 {
   pkgs,
-  inputs,
-  config,
-  nixpkgs,
   lib,
-  self,
-  isNIXOS,
   ...
-}: {
+}:
+{
   imports = [
     ./hardware-configuration.nix
-    #./smb.nix
   ];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -26,7 +21,11 @@
   services.xserver = {
     enable = true;
     xkb.layout = "us";
-    videoDrivers = ["nvidia" "inter" "displaylink"];
+    videoDrivers = [
+      "nvidia"
+      "inter"
+      "displaylink"
+    ];
     displayManager.sddm = {
       enable = true;
     };

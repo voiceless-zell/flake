@@ -24,11 +24,16 @@
     ++ [(import ./ncspot)]
     ++ [(import ./term/kitty)]
     ++ [(import ./gtk)]
-    ++ [(import ./qute)];
+    ++ [(import ./qute)]
+    ++ [(import ./LazyVim)]
+    ++ [(inputs.LazyVim.homeManagerModules.default)];
+
+config.nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+
   config.modules = {
     kitty.enable = true;
     ncspot.enable = true;
-    lazyvim.enable = true;
+    lazyvim.enable = false;
     tmux.enable = true;
     git.enable = true;
     foot.enable = true;

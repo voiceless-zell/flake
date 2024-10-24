@@ -1,10 +1,7 @@
 {
-  pkgs,
-  nixpkgs,
-  inputs,
-  config,
   ...
-}: {
+}:
+{
   imports = [
     ../../modules/core/program.nix
     ../../modules/core/system.nix
@@ -14,7 +11,10 @@
   networking = {
     hostName = "WSL";
   };
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   services.gvfs.enable = true;
   wsl = {
     enable = true;

@@ -1,9 +1,9 @@
 {
   pkgs,
-  inputs,
   config,
   ...
-}: {
+}:
+{
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernel.sysctl = {
@@ -17,8 +17,11 @@
   #  done
   #  modprobe -i vfio-pci
   #'';
-  boot.kernelParams = ["intel_iommu=on" "pcie_aspm=off"];
-  boot.initrd.availableKernelModules = ["vfio-pci"];
+  boot.kernelParams = [
+    "intel_iommu=on"
+    "pcie_aspm=off"
+  ];
+  boot.initrd.availableKernelModules = [ "vfio-pci" ];
   networking = {
     hostName = "G14";
     networkmanager.enable = true;
@@ -28,7 +31,10 @@
   services.xserver = {
     enable = true;
     xkb.layout = "us";
-    videoDrivers = ["amdgpu" "nvidia"];
+    videoDrivers = [
+      "amdgpu"
+      "nvidia"
+    ];
     desktopManager.gnome = {
       enable = true;
     };

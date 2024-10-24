@@ -1,9 +1,8 @@
 {
-  config,
-  lib,
   pkgs,
   ...
-}: {
+}:
+{
   services = {
     # Network shares
     samba = {
