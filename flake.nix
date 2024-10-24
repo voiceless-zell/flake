@@ -27,15 +27,23 @@
     nix-citizen.inputs.nix-gaming.follows = "nix-gaming";
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    nixos-hardware,
-    nixos-wsl,
-    ...
-  } @ inputs: {
-    nixosConfigurations = import ./modules/core/default.nix {
-      inherit self nixpkgs inputs nixos-hardware nixos-wsl;
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nixos-hardware,
+      nixos-wsl,
+      ...
+    }@inputs:
+    {
+      nixosConfigurations = import ./modules/core/default.nix {
+        inherit
+          self
+          nixpkgs
+          inputs
+          nixos-hardware
+          nixos-wsl
+          ;
+      };
     };
-  };
 }
