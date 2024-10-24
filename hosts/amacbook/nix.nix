@@ -1,5 +1,13 @@
-{pkgs, inputs, config, nixpkgs, lib, self, isNIXOS, ...}:
 {
+  pkgs,
+  inputs,
+  config,
+  nixpkgs,
+  lib,
+  self,
+  isNIXOS,
+  ...
+}: {
   imports = [
     ./hardware-configuration.nix
   ];
@@ -13,16 +21,16 @@
     enable = true;
     layout = "us";
     displayManager = {
-    sddm.enable = true;
-  };
+      sddm.enable = true;
+    };
     desktopManager = {
-    gnome.enable = true;
-  };
+      gnome.enable = true;
+    };
     libinput = {
-    enable = true;
-    mouse = {
-    accelProfile = "flat";
-  };
-  };
+      enable = true;
+      mouse = {
+        accelProfile = "flat";
+      };
+    };
   };
 }
