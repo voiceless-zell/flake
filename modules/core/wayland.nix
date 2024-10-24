@@ -1,5 +1,9 @@
-{ inputs, pkgs, isNIXOS, ... }:
 {
+  inputs,
+  pkgs,
+  isNIXOS,
+  ...
+}: {
   programs.hyprland.enable = isNIXOS;
   xdg.portal = {
     enable = isNIXOS;

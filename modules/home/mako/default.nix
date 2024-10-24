@@ -4,10 +4,9 @@
   lib,
   isNIXOS,
   ...
-}: 
-with lib;
-  let
-    cfg = config.modules.mako;
+}:
+with lib; let
+  cfg = config.modules.mako;
 in {
   services = {
     mako = {

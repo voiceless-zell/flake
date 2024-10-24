@@ -6,12 +6,11 @@
   isNIXOS,
   ...
 }:
-with lib;
-  let
-    cfg = config.modules.swaylock;
-in{
+with lib; let
+  cfg = config.modules.swaylock;
+in {
   # home.packages = with pkgs; [swaylock-effects];
-  
+
   programs.swaylock = {
     enable = isNIXOS;
     package = pkgs.swaylock-effects;
@@ -52,12 +51,12 @@ in{
         timeout = 300;
         command = "systemctl suspend";
       }
-       {
-         timeout = 180;
-         command = "systemctl suspend";
-         # command = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch dpms off";
-         # resumeCommand = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch dpms on";
-       }
+      {
+        timeout = 180;
+        command = "systemctl suspend";
+        # command = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch dpms off";
+        # resumeCommand = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl dispatch dpms on";
+      }
     ];
   };
 

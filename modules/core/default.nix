@@ -1,50 +1,67 @@
-{inputs, nixpkgs, self, nixos-hardware, nixos-wsl, ...}:
-let system = "x86_64-linux";
-pkgs = import nixpkgs {
-  inherit system;
-  config.allowUnfree = true;
-};
-lib = nixpkgs.lib;
-in 
-{ 
-symac = nixpkgs.lib.nixosSystem {
-    specialArgs = {inherit self inputs; isNIXOS = true;};
+{
+  inputs,
+  nixpkgs,
+  self,
+  nixos-hardware,
+  nixos-wsl,
+  ...
+}: let
+  system = "x86_64-linux";
+  pkgs = import nixpkgs {
+    inherit system;
+    config.allowUnfree = true;
+  };
+  lib = nixpkgs.lib;
+in {
+  symac = nixpkgs.lib.nixosSystem {
+    specialArgs = {
+      inherit self inputs;
+      isNIXOS = true;
+    };
     modules =
-    [ (../../hosts/symac/default.nix)]
-#++ [ (nixos-hardware.nixosModules.asus-zephyrus-ga401)]
-   ;
+      [../../hosts/symac/default.nix]
+      #++ [ (nixos-hardware.nixosModules.asus-zephyrus-ga401)]
+      ;
   };
 
   G14 = nixpkgs.lib.nixosSystem {
-    specialArgs = {inherit self inputs; isNIXOS = true;};
+    specialArgs = {
+      inherit self inputs;
+      isNIXOS = true;
+    };
     modules =
-    [ (../../hosts/G14/default.nix)]
-#++ [ (nixos-hardware.nixosModules.asus-zephyrus-ga401)]
-   ;
+      [../../hosts/G14/default.nix]
+      #++ [ (nixos-hardware.nixosModules.asus-zephyrus-ga401)]
+      ;
   };
   P16 = nixpkgs.lib.nixosSystem {
-    specialArgs = {inherit self inputs; isNIXOS = true;};
-    modules =
-    [ (../../hosts/P16/default.nix)]
-   ;
+    specialArgs = {
+      inherit self inputs;
+      isNIXOS = true;
+    };
+    modules = [../../hosts/P16/default.nix];
   };
   WSL = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit self inputs;isNIXOS = false;};
-      modules = 
-      [ (../../hosts/WSL/default.nix)]
-   ++ [ (nixos-wsl.nixosModules.default)]
-      ;
+    specialArgs = {
+      inherit self inputs;
+      isNIXOS = false;
     };
-  mserver = nixpkgs.lib.nixosSystem {
-    specialArgs = {inherit self inputs;isNIXOS = true; };
     modules =
-    [(../../hosts/mserver/default.nix)]
-    ;
+      [../../hosts/WSL/default.nix]
+      ++ [(nixos-wsl.nixosModules.default)];
+  };
+  mserver = nixpkgs.lib.nixosSystem {
+    specialArgs = {
+      inherit self inputs;
+      isNIXOS = true;
+    };
+    modules = [../../hosts/mserver/default.nix];
   };
   amacbook = nixpkgs.lib.nixosSystem {
-    specialArgs = {inherit self inputs;isNIXOS = true; };
-    modules = 
-  [(../../hosts/amacbook/default.nix)]
-  ;
+    specialArgs = {
+      inherit self inputs;
+      isNIXOS = true;
+    };
+    modules = [../../hosts/amacbook/default.nix];
   };
 }

@@ -1,4 +1,10 @@
-{ pkgs, config, nixpkgs, isNIXOS, ... }: {
+{
+  pkgs,
+  config,
+  nixpkgs,
+  isNIXOS,
+  ...
+}: {
   programs.dconf.enable = true;
   programs.zsh.enable = true;
   programs.tmux.enable = true;

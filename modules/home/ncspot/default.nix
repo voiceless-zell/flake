@@ -1,17 +1,19 @@
-{ config, lib, ... }:
-with lib;
-let
+{
+  config,
+  lib,
+  ...
+}:
+with lib; let
   cfg = config.modules.ncspot;
-in{
-
-  options.modules.ncspot = { enable = mkEnableOption "ncspot"; };
+in {
+  options.modules.ncspot = {enable = mkEnableOption "ncspot";};
   config = mkIf cfg.enable {
-  programs.ncspot = {
+    programs.ncspot = {
       enable = true;
       settings = {
         shuffle = true;
-      gapless = true;
-        };
+        gapless = true;
+      };
     };
-};
+  };
 }

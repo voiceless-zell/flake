@@ -1,14 +1,13 @@
-{ inputs
-, pkgs
-, lib
-, config
-, isNIXOS
-, ...
+{
+  inputs,
+  pkgs,
+  lib,
+  config,
+  isNIXOS,
+  ...
 }:
-with lib;
-let
-cfg = config.modules.hyprland;
-
+with lib; let
+  cfg = config.modules.hyprland;
 in {
   home.packages = with pkgs; [
     swww
@@ -27,20 +26,20 @@ in {
     direnv
     grimblast
   ];
-home.pointerCursor = {
-  gtk.enable = true;
-  x11.enable = true;
-  package = pkgs.bibata-cursors;
-  name = "Bibata-Modern-Classic";
-  size = 16;
-};
-  systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
+  home.pointerCursor = {
+    gtk.enable = true;
+    x11.enable = true;
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Classic";
+    size = 16;
+  };
+  systemd.user.targets.hyprland-session.Unit.Wants = ["xdg-desktop-autostart.target"];
   wayland.windowManager.hyprland = {
-      systemd.enable = true;
+    systemd.enable = true;
     enable = isNIXOS;
     xwayland = {
       enable = isNIXOS;
-    #  hidpi = true;
+      #  hidpi = true;
     };
     #nvidiaPatches = false;
   };

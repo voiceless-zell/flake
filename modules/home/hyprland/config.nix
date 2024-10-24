@@ -1,10 +1,12 @@
-{ inputs, config, lib, ... }:
-with lib;
-let
+{
+  inputs,
+  config,
+  lib,
+  ...
+}:
+with lib; let
   cfg = config.modules.hyprconfig;
-in{
-
-
+in {
   wayland.windowManager.hyprland = {
     extraConfig = "
       $mainMod = SUPER
@@ -200,6 +202,5 @@ in{
       exec-once = notify-send 'Hey $USER, Welcome back' && load-env 
       exec-once = wl-paste --type text --watch cliphist store && wl-paste --type image --watch cliphist store && mako &
     ";
-  
-};
+  };
 }

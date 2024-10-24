@@ -1,8 +1,11 @@
-{lib, config, isNIXOS, ...}:
-with lib;
-let
-cfg = config.modules.starship;
-
+{
+  lib,
+  config,
+  isNIXOS,
+  ...
+}:
+with lib; let
+  cfg = config.modules.starship;
 in {
   programs.starship = {
     enable = isNIXOS;

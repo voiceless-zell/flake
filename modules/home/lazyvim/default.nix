@@ -4,34 +4,31 @@
   lib,
   ...
 }:
-with lib;
-let 
+with lib; let
   cfg = config.modules.lazyvim;
 in {
-  options.modules.lazyvim = { enable = mkEnableOption "lazyvim";};
+  options.modules.lazyvim = {enable = mkEnableOption "lazyvim";};
   config = mkIf cfg.enable {
+    programs.lazygit.enable = true;
 
-  programs.lazygit.enable = true;
-
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    withRuby = true;
-    extraPackages = with pkgs; [
-      lua-language-server
-      stylua
+    programs.neovim = {
+      enable = true;
+      defaultEditor = true;
+      withRuby = true;
+      extraPackages = with pkgs; [
+        lua-language-server
+        stylua
         #    Telescope
-      ripgrep 
-    ];
+        ripgrep
+      ];
 
-    plugins = with pkgs.vimPlugins; [
-      lazy-nvim
-      obsidian-nvim
-      vimwiki      
-      LazyVim
-    ];
-    extraLuaConfig = 
-      let
+      plugins = with pkgs.vimPlugins; [
+        lazy-nvim
+        obsidian-nvim
+        vimwiki
+        LazyVim
+      ];
+      extraLuaConfig = let
         plugins = with pkgs.vimPlugins; [
           # LazyVim
           LazyVim
@@ -79,23 +76,48 @@ in {
           vim-startuptime
           which-key-nvim
           vim-tmux-navigator
-	        { name = "LuaSnip"; path = luasnip; }
-          { name = "catppuccin"; path = catppuccin-nvim; }
-          { name = "mini.ai"; path = mini-nvim; }
-          { name = "mini.bufremove"; path = mini-nvim; }
-          { name = "mini.comment"; path = mini-nvim; }
-          { name = "mini.indentscope"; path = mini-nvim; }
-          { name = "mini.pairs"; path = mini-nvim; }
-          { name = "mini.surround"; path = mini-nvim; }
+          {
+            name = "LuaSnip";
+            path = luasnip;
+          }
+          {
+            name = "catppuccin";
+            path = catppuccin-nvim;
+          }
+          {
+            name = "mini.ai";
+            path = mini-nvim;
+          }
+          {
+            name = "mini.bufremove";
+            path = mini-nvim;
+          }
+          {
+            name = "mini.comment";
+            path = mini-nvim;
+          }
+          {
+            name = "mini.indentscope";
+            path = mini-nvim;
+          }
+          {
+            name = "mini.pairs";
+            path = mini-nvim;
+          }
+          {
+            name = "mini.surround";
+            path = mini-nvim;
+          }
         ];
         mkEntryFromDrv = drv:
-          if lib.isDerivation drv then
-            { name = "${lib.getName drv}"; path = drv; }
-          else
-            drv;
+          if lib.isDerivation drv
+          then {
+            name = "${lib.getName drv}";
+            path = drv;
+          }
+          else drv;
         lazyPath = pkgs.linkFarm "lazy-plugins" (builtins.map mkEntryFromDrv plugins);
-      in
-    ''
+      in ''
         require("lazy").setup({
           defaults = {
             lazy = true,
@@ -110,7 +132,7 @@ in {
           spec = {
             { "LazyVim/LazyVim", import = "lazyvim.plugins" },
             -- The following configs are needed for fixing lazyvim on nix
-            
+
           { "nvim-treesitter/nvim-treesitter",
              opts = function(_, opts)
               opts.ensure_installed = {}
@@ -129,37 +151,38 @@ in {
           },
         })
       '';
-  };  
-  # https://github.com/nvim-treesitter/nvim-treesitter#i-get-query-error-invalid-node-type-at-position
-  xdg.configFile."nvim/parser".source =
-    let
+    };
+    # https://github.com/nvim-treesitter/nvim-treesitter#i-get-query-error-invalid-node-type-at-position
+    xdg.configFile."nvim/parser".source = let
       parsers = pkgs.symlinkJoin {
         name = "treesitter-parsers";
-        paths = (pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins: with plugins; [
-          c
-          lua
-          bash
-          markdown_inline
-          markdown
-          regex
-          nix
-          python
-          xml
-          yaml
-          vimdoc
-          java
-          http 
-          html
-          dockerfile
-        ])).dependencies;
+        paths =
+          (pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins:
+            with plugins; [
+              c
+              lua
+              bash
+              markdown_inline
+              markdown
+              regex
+              nix
+              python
+              xml
+              yaml
+              vimdoc
+              java
+              http
+              html
+              dockerfile
+            ]))
+          .dependencies;
       };
-    in
-    "${parsers}/parser";
+    in "${parsers}/parser";
 
-  # Normal LazyVim config here, see https://github.com/LazyVim/starter/tree/main/lua
-  xdg.configFile = {
-    "nvim/lua".source = ./lua;
-    "nvim/lua/plugins/obsidian.lua".source = ./lua/plugins/obsidian.lua;
+    # Normal LazyVim config here, see https://github.com/LazyVim/starter/tree/main/lua
+    xdg.configFile = {
+      "nvim/lua".source = ./lua;
+      "nvim/lua/plugins/obsidian.lua".source = ./lua/plugins/obsidian.lua;
     };
-};
+  };
 }

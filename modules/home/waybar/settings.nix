@@ -1,22 +1,24 @@
-{ config, lib, ... }:
-with lib;
-let
+{
+  config,
+  lib,
+  ...
+}:
+with lib; let
   cfg = config.modules.waybarsetting;
-in{
-
+in {
   programs.waybar.settings = [
     {
       "layer" = "top";
       "position" = "top";
       modules-left = [
         "temperature"
-        "hyprland/workspaces" 
+        "hyprland/workspaces"
         "battery"
       ];
       modules-center = [
         "clock"
       ];
-      
+
       modules-right = [
         "pulseaudio"
         "pulseaudio#microphone"
@@ -25,7 +27,7 @@ in{
         "disk"
         "keyboard-state"
         "network"
-      #  "cava"
+        #  "cava"
         "tray"
       ];
       "disk" = {
@@ -39,9 +41,9 @@ in{
       "pulseaudio" = {
         "scroll-step" = 5;
         "format" = "{icon} {volume}%";
-       "format-muted" = "󰸈 Muted";
+        "format-muted" = "󰸈 Muted";
         "format-icons" = {
-          "default" = [ "" "" "󱄠" ];
+          "default" = ["" "" "󱄠"];
         };
         "on-click" = "pamixer -t";
         "on-click-right" = "pavucontrol";
@@ -72,12 +74,12 @@ in{
         };
       };
       "battery" = {
-          "format" = "{capacity}% {icon}";
-          "format-charging" = "{capacity}%  ";
-          "format-plugged" = "{capacity}%  ";
-          "format-alt" = "{time} {icon}";
-          "format-icons" = ["" "" "" "" ""];
-        };
+        "format" = "{capacity}% {icon}";
+        "format-charging" = "{capacity}%  ";
+        "format-plugged" = "{capacity}%  ";
+        "format-alt" = "{time} {icon}";
+        "format-icons" = ["" "" "" "" ""];
+      };
       "cpu" = {
         "interval" = 1;
         "format" = "󰇖 {usage}%";
@@ -95,25 +97,25 @@ in{
         "hwmon-path" = "/sys/class/hwmon/hwmon0/temp1_input";
         "format" = " {temperatureF}°F";
       };
-     # "cava" = {
-     #   "framerate" = 60;
-     #   "autosens" = 1;
-     #   "sensitivity" = 10;
-     #   "bars" = 6;
-     #   "lower_cutoff_freq" = 50;
-     #   "higher_cutoff_freq" = 10000;
-     #   "method" = "pulse";
-     #   "source" = "auto";
-     #   "stereo" = true;
-     #   "reverse" = false;
-     #   "bar_delimiter" = 0;
-     #   "monstercat" = false;
-     #   "waves" = false;
-     #   "noise_reduction" = 0.77;
-     #   "input_delay" = 2;
-     #   "format-icons" = [ "▁" "▂" "▃" "▄" "▅" "▆" "▇" "█" ];
-     #   "on-click-right" = "playerctl play-pause";
-     # };
+      # "cava" = {
+      #   "framerate" = 60;
+      #   "autosens" = 1;
+      #   "sensitivity" = 10;
+      #   "bars" = 6;
+      #   "lower_cutoff_freq" = 50;
+      #   "higher_cutoff_freq" = 10000;
+      #   "method" = "pulse";
+      #   "source" = "auto";
+      #   "stereo" = true;
+      #   "reverse" = false;
+      #   "bar_delimiter" = 0;
+      #   "monstercat" = false;
+      #   "waves" = false;
+      #   "noise_reduction" = 0.77;
+      #   "input_delay" = 2;
+      #   "format-icons" = [ "▁" "▂" "▃" "▄" "▅" "▆" "▇" "█" ];
+      #   "on-click-right" = "playerctl play-pause";
+      # };
       "tray" = {
         "icon-size" = 12;
         "spacing" = 5;

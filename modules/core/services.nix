@@ -1,4 +1,4 @@
-{ isNIXOS, ...}: {
+{isNIXOS, ...}: {
   services = {
     gvfs.enable = isNIXOS;
     gnome.gnome-keyring.enable = isNIXOS;
@@ -16,12 +16,12 @@
     #  acceleration = "cuda";#find why over ride package
     #};
     displayManager = {
-        sddm = {
-            enable = isNIXOS;
-            wayland = {
-                enable = isNIXOS;
-              };
-          };
+      sddm = {
+        enable = isNIXOS;
+        wayland = {
+          enable = isNIXOS;
+        };
       };
+    };
   };
 }
