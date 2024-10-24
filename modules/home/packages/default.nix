@@ -5,13 +5,14 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.packages;
-  star-citizen = pkgs.star-citizen.override (prev: {
-    wineDllOverrides = prev.wineDllOverrides ++ ["dxgi=n"];
-  });
-in {
-  options.modules.packages = {enable = mkEnableOption "packages";};
+in
+{
+  options.modules.packages = {
+    enable = mkEnableOption "packages";
+  };
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       # others

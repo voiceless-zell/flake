@@ -3,10 +3,14 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.ncspot;
-in {
-  options.modules.ncspot = {enable = mkEnableOption "ncspot";};
+in
+{
+  options.modules.ncspot = {
+    enable = mkEnableOption "ncspot";
+  };
   config = mkIf cfg.enable {
     programs.ncspot = {
       enable = true;

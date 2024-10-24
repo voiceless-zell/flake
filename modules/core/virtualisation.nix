@@ -1,9 +1,9 @@
 {
-  config,
   pkgs,
   isNIXOS,
   ...
-}: {
+}:
+{
   environment.systemPackages = with pkgs; [
     virt-manager
     virt-viewer
@@ -20,7 +20,7 @@
       qemu = {
         swtpm.enable = isNIXOS;
         ovmf.enable = isNIXOS;
-        ovmf.packages = [pkgs.OVMFFull.fd];
+        ovmf.packages = [ pkgs.OVMFFull.fd ];
       };
     };
     spiceUSBRedirection.enable = isNIXOS;

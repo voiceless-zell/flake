@@ -1,24 +1,19 @@
 {
-  self,
   pkgs,
-  inputs,
   isNIXOS,
   ...
-}: let
-in {
-  #imports = [ inputs.nix-gaming.nixosModules.star-citizen]; #TODO check this
+}:
+{
   nix = {
     settings = {
       auto-optimise-store = true;
-      experimental-features = ["nix-command" "flakes"];
-      substituters =
-        if isNIXOS
-        then ["https://nix-gaming.cachix.org"]
-        else [];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+      substituters = if isNIXOS then [ "https://nix-gaming.cachix.org" ] else [ ];
       trusted-public-keys =
-        if isNIXOS
-        then ["nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="]
-        else [];
+        if isNIXOS then [ "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4=" ] else [ ];
     };
     gc = {
       automatic = true;

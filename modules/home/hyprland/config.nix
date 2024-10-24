@@ -1,12 +1,8 @@
 {
-  inputs,
-  config,
-  lib,
   ...
 }:
-with lib; let
-  cfg = config.modules.hyprconfig;
-in {
+
+{
   wayland.windowManager.hyprland = {
     extraConfig = "
       $mainMod = SUPER

@@ -1,13 +1,8 @@
 {
-  config,
-  pkgs,
-  lib,
   isNIXOS,
   ...
 }:
-with lib; let
-  cfg = config.modules.mako;
-in {
+{
   services = {
     mako = {
       enable = isNIXOS;

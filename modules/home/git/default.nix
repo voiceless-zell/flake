@@ -4,14 +4,18 @@
   config,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.git;
-in {
-  options.modules.git = {enable = mkEnableOption "git";};
+in
+{
+  options.modules.git = {
+    enable = mkEnableOption "git";
+  };
   config = mkIf cfg.enable {
     programs.git.enable = true;
     programs.git.userName = "voiceless-zell";
     programs.git.userEmail = "peter.bouchard2893@proton.me";
-    home.packages = [pkgs.gh];
+    home.packages = [ pkgs.gh ];
   };
 }

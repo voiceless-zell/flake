@@ -1,14 +1,7 @@
 {
-  pkgs,
-  lib,
-  config,
-  inputs,
-  isNIXOS,
   ...
 }:
-with lib; let
-  cfg = config.modules.qute;
-in {
+{
   programs.qutebrowser = {
     enable = true;
     quickmarks = {

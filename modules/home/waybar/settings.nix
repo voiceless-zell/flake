@@ -1,11 +1,7 @@
 {
-  config,
-  lib,
   ...
 }:
-with lib; let
-  cfg = config.modules.waybarsetting;
-in {
+{
   programs.waybar.settings = [
     {
       "layer" = "top";
@@ -43,7 +39,11 @@ in {
         "format" = "{icon} {volume}%";
         "format-muted" = "󰸈 Muted";
         "format-icons" = {
-          "default" = ["" "" "󱄠"];
+          "default" = [
+            ""
+            ""
+            "󱄠"
+          ];
         };
         "on-click" = "pamixer -t";
         "on-click-right" = "pavucontrol";
@@ -78,7 +78,13 @@ in {
         "format-charging" = "{capacity}%  ";
         "format-plugged" = "{capacity}%  ";
         "format-alt" = "{time} {icon}";
-        "format-icons" = ["" "" "" "" ""];
+        "format-icons" = [
+          ""
+          ""
+          ""
+          ""
+          ""
+        ];
       };
       "cpu" = {
         "interval" = 1;

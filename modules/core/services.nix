@@ -1,4 +1,5 @@
-{isNIXOS, ...}: {
+{ isNIXOS, ... }:
+{
   services = {
     gvfs.enable = isNIXOS;
     gnome.gnome-keyring.enable = isNIXOS;
@@ -7,7 +8,7 @@
       enable = true;
       settings = {
         PasswordAuthentication = true;
-        AllowUsers = ["zell"];
+        AllowUsers = [ "zell" ];
       };
     };
     self-deploy.sshKeyFile = "~/.ssh/id_ed25519";

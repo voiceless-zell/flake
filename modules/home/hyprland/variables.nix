@@ -1,11 +1,7 @@
 {
-  config,
-  lib,
   ...
 }:
-with lib; let
-  cfg = config.modules.hyprvar;
-in {
+{
   home.sessionVariables = {
     FLAKE = "/home/zell/flake2/";
     NIXOS_OZONE_WL = "1";

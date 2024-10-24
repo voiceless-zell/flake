@@ -3,10 +3,14 @@
   config,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.foot;
-in {
-  options.modules.foot = {enable = mkEnableOption "foot";};
+in
+{
+  options.modules.foot = {
+    enable = mkEnableOption "foot";
+  };
   config = mkIf cfg.enable {
     programs.foot = {
       enable = true;

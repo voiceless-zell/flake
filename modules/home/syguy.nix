@@ -1,30 +1,26 @@
 {
-  inputs,
-  config,
-  lib,
-  pkgs,
-  isNIXOS,
   ...
-}: {
+}:
+{
   imports =
-    [(import ./waybar)]
-    ++ [(import ./firefox)]
-    ++ [(import ./hyprland)]
-    ++ [(import ./git)]
-    ++ [(import ./term/foot)]
-    ++ [(import ./swaylock)]
-    ++ [(import ./wofi)]
-    ++ [(import ./zsh)]
-    ++ [(import ./mako)]
-    ++ [(import ./starship)]
-    ++ [(import ./wlogout)]
-    ++ [(import ./packages)]
-    ++ [(import ./tmux)]
-    ++ [(import ./lazyvim)]
-    ++ [(import ./ncspot)]
-    ++ [(import ./term/kitty)]
-    ++ [(import ./gtk)]
-    ++ [(import ./qute)];
+    [ (import ./waybar) ]
+    ++ [ (import ./firefox) ]
+    ++ [ (import ./hyprland) ]
+    ++ [ (import ./git) ]
+    ++ [ (import ./term/foot) ]
+    ++ [ (import ./swaylock) ]
+    ++ [ (import ./wofi) ]
+    ++ [ (import ./zsh) ]
+    ++ [ (import ./mako) ]
+    ++ [ (import ./starship) ]
+    ++ [ (import ./wlogout) ]
+    ++ [ (import ./packages) ]
+    ++ [ (import ./tmux) ]
+    ++ [ (import ./lazyvim) ]
+    ++ [ (import ./ncspot) ]
+    ++ [ (import ./term/kitty) ]
+    ++ [ (import ./gtk) ]
+    ++ [ (import ./qute) ];
   config.modules = {
     kitty.enable = true;
     ncspot.enable = true;

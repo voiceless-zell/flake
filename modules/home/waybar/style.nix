@@ -1,11 +1,7 @@
 {
-  config,
-  lib,
   ...
 }:
-with lib; let
-  cfg = config.modules.waybarstyle;
-in {
+{
   programs.waybar.style = ''
 
         /*

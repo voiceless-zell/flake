@@ -1,14 +1,11 @@
 {
-  inputs,
   pkgs,
   lib,
-  config,
   isNIXOS,
   ...
 }:
-with lib; let
-  cfg = config.modules.hyprland;
-in {
+with lib;
+{
   home.packages = with pkgs; [
     swww
     hyprpicker
@@ -33,7 +30,7 @@ in {
     name = "Bibata-Modern-Classic";
     size = 16;
   };
-  systemd.user.targets.hyprland-session.Unit.Wants = ["xdg-desktop-autostart.target"];
+  systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
   wayland.windowManager.hyprland = {
     systemd.enable = true;
     enable = isNIXOS;

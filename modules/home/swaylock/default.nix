@@ -1,14 +1,10 @@
 {
   pkgs,
   lib,
-  config,
-  inputs,
   isNIXOS,
   ...
 }:
-with lib; let
-  cfg = config.modules.swaylock;
-in {
+{
   # home.packages = with pkgs; [swaylock-effects];
 
   programs.swaylock = {
@@ -60,5 +56,5 @@ in {
     ];
   };
 
-  systemd.user.services.swayidle.Install.WantedBy = lib.mkForce ["hyprland-session.target"];
+  systemd.user.services.swayidle.Install.WantedBy = lib.mkForce [ "hyprland-session.target" ];
 }
