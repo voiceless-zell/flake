@@ -1,4 +1,7 @@
 {
+  pkgs,
+  lib,
+  inputs,
   ...
 }:
 {
@@ -16,5 +19,7 @@
     ./../../modules/core/user.nix
     ./../../modules/core/wayland.nix
     #     ./../../modules/core/obsidian.nix
+    inputs.nix-minecraft.nixosModules.minecraft-servers
+    ./../../modules/core/minecraft.nix
   ];
 }

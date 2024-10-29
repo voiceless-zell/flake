@@ -25,6 +25,7 @@
     # Star Citizen
     nix-citizen.url = "github:LovingMelody/nix-citizen";
     nix-citizen.inputs.nix-gaming.follows = "nix-gaming";
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
   };
 
   outputs =
